@@ -5,26 +5,27 @@ public class CageImpl implements Cage {
     private double area;
     private Condition condition;
     private boolean isVacantCage;
-    private String nameAnimal;
+    private AnimalFactory animal;
 
-    public CageImpl(int number, double area, Condition condition, boolean isVacantCage, String nameAnimal) {
+
+    public CageImpl(int number, double area, Condition condition, boolean isVacantCage, AnimalFactory animal) {
         this.number = number;
         this.area = area;
         this.condition = condition;
         this.isVacantCage = isVacantCage;
-        this.nameAnimal = nameAnimal;
+        this.animal = animal;
     }
 
-    public void setNameAnimal(String nameAnimal) {
-        this.nameAnimal = nameAnimal;
+    public void setAnimal(AnimalFactory animal) {
+        this.animal = animal;
     }
 
     public void setVacantCage(boolean isVacantCage) {
         this.isVacantCage = isVacantCage;
     }
 
-    public String getNameAnimal() {
-        return nameAnimal;
+    public AnimalFactory getAnimal() {
+        return animal;
     }
 
     @Override
