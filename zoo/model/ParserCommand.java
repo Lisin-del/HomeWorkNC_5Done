@@ -2,6 +2,7 @@ package zoo.model;
 
 import zoo.Zoo;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ParserCommand {
@@ -11,11 +12,6 @@ public class ParserCommand {
     private String split = " ";
     private Zoo zoo;
 
-    public ParserCommand(Zoo zoo) {
-        this.zoo = zoo;
-    }
-
-
     public String[] enterCommand() {
         System.out.print("Enter your command: ");
         commandUser = in.nextLine();
@@ -23,39 +19,23 @@ public class ParserCommand {
         return command;
     }
 
-    public void checkCommand(String[] command, AnimalFactory animal) {
-        if(command[0].equalsIgnoreCase("check-in")) {
-            switch(command[1]) {
-                case "leon" : AnimalFactory animalLeon = animal.getAnimal(Species.LEON, command[2]);
-                zoo.checkInAnimal(animalLeon);
-                break;
-                case "giraffe" : AnimalFactory animalGiraffe = animal.getAnimal(Species.GIRAFFE, command[2]);
-                zoo.checkInAnimal(animalGiraffe);
-                break;
-                case "squirrel" : AnimalFactory animalSquirrel = animal.getAnimal(Species.SQUIRREL, command[2]);
-                zoo.checkInAnimal(animalSquirrel);
-                break;
-                case "penguin" : AnimalFactory animalPenguin = animal.getAnimal(Species.PENGUIN, command[2]);
-                zoo.checkInAnimal(animalPenguin);
-                break;
-                default : System.out.println("Animal type is not correct!");
-            }
+    public Species speciesAnimal(String[] command) throws ArrayIndexOutOfBoundsException, IllegalArgumentException {
+        Species species;
+        switch(command[1].toLowerCase()) {
+            case("leon") : species = Species.LEON;
+            break;
+            case("giraffe") : species = Species.GIRAFFE;
+            break;
+            case("squirrel") : species = Species.SQUIRREL;
+            break;
+            case("penguin") : species = Species.PENGUIN;
+            break;
+            default: throw new IllegalArgumentException("Type is not correct!");
         }
-        else if(command[0].equalsIgnoreCase("check-out")) {
-            animal = new AnimalFactory(command[1]);
-            zoo.checkOutAnimal(animal);
-        }
-        else if(command[0].equalsIgnoreCase("log")) {
-            System.out.println(zoo.getHistory());
-        }
-        else {
-            System.out.println("Your command is not correct!\n" +
-                    "Use these command:\n" +
-                    "<check-in> [animal-type] [animal-name]\n" +
-                    "<check-out> [animal-name]\n" +
-                    "<log>");
-        }
+        return species;
     }
+
+
 
 
 

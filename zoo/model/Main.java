@@ -6,16 +6,21 @@ import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-
-        AnimalFactory animalFactory = new AnimalFactory();
-
         ZooInitialization zooInit = new ZooInitialization();
-        zooInit.getCage().get(0).setAnimal(animalFactory.getAnimal(Species.GIRAFFE, "lol"));
-        for(CageImpl c : zooInit.getCage()) {
-            System.out.println(c.getAnimal().getName());
+        ParserCommand parserCommand = new ParserCommand();
+        AnimalFactory animalFactory = new AnimalFactory(zooInit);
 
+        while(true) {
+            String[] command = parserCommand.enterCommand();
+            try {
+                animalFactory.checkAnimalZoo(command);
+            }
+            catch(ArrayIndexOutOfBoundsException exception) {
+                System.out.println("Your command is not correct!");
+            }
+            catch(IllegalArgumentException exception) {
+                System.out.println(exception);
+            }
         }
-
-
     }
 }

@@ -12,9 +12,9 @@ public class ZooInitialization {
 
     //cages
     private CageImpl cageOne = new CageImpl(1, 100.00, conditionForCageOne, true, null);
-    private CageImpl cageTwo = new CageImpl(2, 200.00, conditionForCageOne, true, null);
-    private CageImpl cageThree = new CageImpl(3, 60.00, conditionForCageOne, true, null);
-    private CageImpl cageFour = new CageImpl(4, 80.00, conditionForCageOne, true, null);
+    private CageImpl cageTwo = new CageImpl(2, 200.00, conditionForCageTwo, true, null);
+    private CageImpl cageThree = new CageImpl(3, 60.00, conditionForCageThree, true, null);
+    private CageImpl cageFour = new CageImpl(4, 80.00, conditionForCageFour, true, null);
 
     //list cages
     private List<CageImpl> cages = new ArrayList<>();

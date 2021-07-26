@@ -5,10 +5,9 @@ public class CageImpl implements Cage {
     private double area;
     private Condition condition;
     private boolean isVacantCage;
-    private AnimalFactory animal;
+    private Animal animal;
 
-
-    public CageImpl(int number, double area, Condition condition, boolean isVacantCage, AnimalFactory animal) {
+    public CageImpl(int number, double area, Condition condition, boolean isVacantCage, Animal animal) {
         this.number = number;
         this.area = area;
         this.condition = condition;
@@ -16,7 +15,7 @@ public class CageImpl implements Cage {
         this.animal = animal;
     }
 
-    public void setAnimal(AnimalFactory animal) {
+    public void setAnimal(Animal animal) {
         this.animal = animal;
     }
 
@@ -24,7 +23,7 @@ public class CageImpl implements Cage {
         this.isVacantCage = isVacantCage;
     }
 
-    public AnimalFactory getAnimal() {
+    public Animal getAnimal() {
         return animal;
     }
 
